@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppLanterna.MainPage"
+             Title="SuperLight"
+             BackgroundColor="#232323">
+
+    <StackLayout>
+        <Grid RowDefinitions="100, 200, *, *, *, *, *"
+              ColumnDefinitions="*, *">
+
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                   Text="LANTERNA" FontFamily="" FontSize=""
+                   Style="{StaticResource titulo}"/>
+
+            <ImageButton Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                         x:Name="btnOnOff"
+                         MinimumHeightRequest="360"
+                         MinimumWidthRequest="821"
+                         VerticalOptions="Start"
+                         HorizontalOptions="Center"
+                         Aspect="AspectFill"
+                         BackgroundColor="#232323"
+                         Clicked="btnOnOff_Clicked" />
+
+            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                   HorizontalOptions="Center"
+                   Text="SITUAÇÃO DA BATERIA "
+                   Style="{StaticResource subTitulo}" />
+
+            <Label Grid.Row="3" Grid.Column="0" Text="Carga Restante: " Style="{StaticResource textoCinza}" />
+            <Label Grid.Row="4" Grid.Column="0" Text="Status da Bateria: " Style="{StaticResource textoCinza}" />
+            <Label Grid.Row="5" Grid.Column="0" Text="Fonte de Energia: " Style="{StaticResource textoCinza}" />
+
+            <Label Grid.Row="3" Grid.Column="1" Text="lbl_porcentagem_restante" Style="{StaticResource textoBranco}" />
+            <Label Grid.Row="4" Grid.Column="1" Text="lbl_status" Style="{StaticResource textoBranco}" />
+            <Label Grid.Row="5" Grid.Column="1" Text="lbl_fonte_carregamento" Style="{StaticResource textoBranco}" />
+
+            <Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
+                   x:Name="lbl_bateria_fraca"
+                   Style="{StaticResource textoBranco}"
+                   FontAttributes="Italic"
+                   HorizontalTextAlignment="Center"
+                   TextColor="Red"/>
+
+        </Grid>
+    </StackLayout>
+
+</ContentPage>
