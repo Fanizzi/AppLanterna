@@ -4,17 +4,15 @@
              x:Class="AppLanterna.App">
     <Application.Resources>
         <ResourceDictionary>
+
             <Style x:Name="fonteCustomizada" TargetType="Label">
                 <Setter Property="FontFamily">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:String"
-                                    iOS="Exo2-Bold.ttf"
-                                    Android="Exo2-Bold.ttf#Exo2-Bold" />
+                                    iOS="Exo2-Bold.otf"
+                                    Android="Exo2-Bold.otf#Exo2-Bold"/>
                     </Setter.Value>
                 </Setter>
-            </Style>
-
-            <Style>
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="TextColor" Value="White" />

@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppLanterna.MainPage"
-             Title="SuperLight"
+             Title="LanternaDiabolica"
              BackgroundColor="#232323">
 
     <StackLayout>
@@ -10,7 +10,7 @@
               ColumnDefinitions="*, *">
 
             <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
-                   Text="LANTERNA" FontFamily="" FontSize=""
+                   Text="LANTERNA" FontFamily="" FontSize="25"
                    Style="{StaticResource titulo}"/>
 
             <ImageButton Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
@@ -20,7 +20,7 @@
                          VerticalOptions="Start"
                          HorizontalOptions="Center"
                          Aspect="AspectFill"
-                         BackgroundColor="#232323"
+                         BackgroundColor="Transparent"                      
                          Clicked="btnOnOff_Clicked" />
 
             <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
@@ -32,9 +32,9 @@
             <Label Grid.Row="4" Grid.Column="0" Text="Status da Bateria: " Style="{StaticResource textoCinza}" />
             <Label Grid.Row="5" Grid.Column="0" Text="Fonte de Energia: " Style="{StaticResource textoCinza}" />
 
-            <Label Grid.Row="3" Grid.Column="1" Text="lbl_porcentagem_restante" Style="{StaticResource textoBranco}" />
-            <Label Grid.Row="4" Grid.Column="1" Text="lbl_status" Style="{StaticResource textoBranco}" />
-            <Label Grid.Row="5" Grid.Column="1" Text="lbl_fonte_carregamento" Style="{StaticResource textoBranco}" />
+            <Label Grid.Row="3" Grid.Column="1" x:Name="lbl_porcentagem_restante" Style="{StaticResource textoBranco}" />
+            <Label Grid.Row="4" Grid.Column="1" x:Name="lbl_status" Style="{StaticResource textoBranco}" />
+            <Label Grid.Row="5" Grid.Column="1" x:Name="lbl_fonte_carregamento" Style="{StaticResource textoBranco}" />
 
             <Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
                    x:Name="lbl_bateria_fraca"

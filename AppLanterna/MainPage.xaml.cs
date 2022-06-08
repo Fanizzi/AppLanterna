@@ -18,7 +18,7 @@ namespace AppLanterna
         {
             InitializeComponent();
 
-            btnOnOff.Source = ImageSource.FromResource("AppLanterna.Image.botao-desligado.png");
+            btnOnOff.Source = ImageSource.FromResource("AppLanterna.Image.botao_desligado.png");
 
             Carrega_Informacoes_Bateria();
         }
@@ -57,13 +57,88 @@ namespace AppLanterna
                 {
                     lbl_bateria_fraca.Text = "";
                 }
+
+                switch (e.Status)
+                {
+                    case Plugin.Battery.Abstractions.BatteryStatus.Charging:
+                        lbl_status.Text = "Carregando";
+                        break;
+
+                    case Plugin.Battery.Abstractions.BatteryStatus.Discharging:
+                        lbl_status.Text = "Descarregando";
+                        break;
+
+                    case Plugin.Battery.Abstractions.BatteryStatus.Full:
+                        lbl_status.Text = "Bateria Cheia";
+                        break;
+
+                    case Plugin.Battery.Abstractions.BatteryStatus.NotCharging:
+                        lbl_status.Text = "Sem Carregar";
+                        break;
+
+                    case Plugin.Battery.Abstractions.BatteryStatus.Unknown:
+                        lbl_status.Text = "Desconhecido";
+                        break;
+                }
+
+                switch (e.PowerSource)
+                {
+                    case Plugin.Battery.Abstractions.PowerSource.Ac:
+                        lbl_fonte_carregamento.Text = "Carregador";
+                        break;
+
+                    case Plugin.Battery.Abstractions.PowerSource.Battery:
+                        lbl_fonte_carregamento.Text = "Bateria";
+                        break;
+
+                    case Plugin.Battery.Abstractions.PowerSource.Wireless:
+                        lbl_fonte_carregamento.Text = "Sem Fio";
+                        break;
+
+                    case Plugin.Battery.Abstractions.PowerSource.Usb:
+                        lbl_fonte_carregamento.Text = "USB";
+                        break;
+
+                    case Plugin.Battery.Abstractions.PowerSource.Other:
+                        lbl_fonte_carregamento.Text = "Desconhecida";
+                        break;
+                }
             }
-            catch
+            catch (Exception ex)
+            {
+                await DisplayAlert("Ocorreu um erro: \n ", ex.Message, "Ok");
+            }
         }
 
-        private void btnOnOff_Clicked(object sender, EventArgs e)
+        private async void btnOnOff_Clicked(object sender, EventArgs e)
         {
+            try
+            {
+                if (!lanterna_ligada)
+                {
+                    lanterna_ligada = true;
 
+                    btnOnOff.Source = ImageSource.FromResource("AppLanterna.Image.botao_ligado.png");
+
+                    Vibration.Vibrate(TimeSpan.FromMilliseconds(250));
+
+                    await Flashlight.TurnOnAsync();
+                }
+                else
+                {
+                    lanterna_ligada = false;
+
+                    btnOnOff.Source = ImageSource.FromResource("AppLanterna.Image.botao_desligado.png");
+
+                    Vibration.Vibrate(TimeSpan.FromMilliseconds(250));
+
+                    await Flashlight.TurnOffAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Ocorreu um erro", ex.Message, "Ok");
+            }
         }
     }
 }
