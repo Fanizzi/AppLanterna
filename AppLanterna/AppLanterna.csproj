@@ -13,6 +13,17 @@
   <ItemGroup>
     <None Remove="Image\botao-desligado.png" />
     <None Remove="Image\botao-ligado.png" />
+    <None Remove="Image\botao_desligado.png" />
+    <None Remove="Image\botao_ligado.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Image\botao_desligado.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Image\botao_ligado.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
